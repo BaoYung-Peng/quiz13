@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.quiz13.ifs.FeedbackService;
 import com.example.quiz13.vo.BasicRes;
 import com.example.quiz13.vo.FillinReq;
+import com.example.quiz13.vo.SearchIdReq;
 import com.example.quiz13.vo.SearchReq;
 import com.example.quiz13.vo.SearchRes;
 import com.example.quiz13.vo.UpdateReq;
@@ -27,5 +28,9 @@ public class FeedBackController {
 	public BasicRes fillin(@Valid @RequestBody FillinReq req) {
 		return feedback.fillin(req);
 	}
-
+	
+	@PostMapping(value = "quiz/feedback")
+	public BasicRes feedback(@Valid @RequestBody SearchIdReq req) {
+		return feedback.feedback(req.getId());
+	}
 }
